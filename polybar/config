@@ -1,0 +1,369 @@
+;==========================================================
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;==========================================================
+;By wut
+
+[colors]
+; background = ${xrdb:color0:#222}
+background = #e1222000
+background-alt = #444
+;foreground = ${xrdb:color7:#222}
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+trans = #00000000
+semi-trans-black = #cc000000
+
+[bar/bar1]
+monitor = ${env:MONITOR:HDMI-A-0}
+width = 100%
+height = 27
+radius = 0
+fixed-center = false
+
+background = ${colors.trans}
+foreground = ${colors.foreground} 
+line-size = 3
+line-color = #f00
+
+border-size = 
+border-color = #00000000
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0  
+module-margin-right = 0
+
+font-0 = "UbuntuMono Nerd Font Mono:style=Regular:pixelsize=12;0"
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = "UbuntuMono Nerd Font:size=21;5"
+font-3 = "UbuntuMono Nerd Font:size=12;0"
+
+modules-left = i3 round-right margin round-left weather round-right margin round-left vpn round-right margin
+modules-center = backgroundChange 
+modules-right = round-left pulseaudio memory cpu wlan date powermenu 
+
+tray-position =  none
+tray-padding = 1
+tray-background = ${colors.background}
+
+
+; scroll-up = i3wm-wsnext
+; scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+bottom = true
+
+
+[bar/bar2]
+monitor = ${env:MONITOR:DisplayPort-1}
+width = 100%
+height = 27
+radius = 
+fixed-center = false
+
+background = ${colors.trans}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 
+border-color = #00000000
+
+padding-left = 0
+padding-right = 
+
+module-margin-left = 0
+module-margin-right = 0
+
+
+font-0 = "UbuntuMono Nerd Font Mono:style=Regular:pixelsize=12;0"
+
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = "UbuntuMono Nerd Font :size=22;5"
+font-3 = "UbuntuMono Nerd Font:size=12;0"
+
+modules-left = i3 round-right margin
+modules-center = 
+modules-right = round-left memory cpu round-right margin
+
+tray-position = right
+tray-padding = 2
+tray-background = %{colors.semi-trans-black}
+
+; override-redirect = true
+
+
+; scroll-up = i3wm-wsnext
+; scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+bottom = true
+
+
+; [module/filesystem]
+; type = internal/fs
+; interval = 25
+
+; mount-0 = /
+
+; label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+; label-unmounted = %mountpoint% not mounted
+; label-unmounted-foreground = ${colors.foreground-alt}
+; format-background = ${colors.background}
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.background}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${colors.background}
+label-focused-underline= ${colors.primary}
+label-focused-foreground= ${colors.primary}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 2
+label-unfocused-background = ${colors.background}
+label-unfocused-underline= #11AB84 
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+; Separator in between workspaces
+
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "CPU Usage: "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #f90000
+label-font = 1
+label = %percentage:2%%
+format= %{A3:gnome-system-monitor:}<label>%{A}
+format-background = ${colors.background}
+format-padding = 1
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "Memory: "
+format-font = 1
+
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #4bffdc
+label = %{A3:gnome-system-monitor:}%gb_used%/%gb_total%%{A}
+format-background = ${colors.background}
+format-padding=1
+
+[module/wlan]
+type = internal/network
+interface = wlp31s0
+interval = 1.0
+
+format-padding=1
+format-connected = <label-connected>
+format-connected-underline = #9f78e1
+label-connected =%{A3:nm-connection-editor:}%{T4}%{F#00FF00}直  %{T-}%{T1}%downspeed:8:10%%{T-}%{A}
+
+format-connected-background = ${colors.background}
+format-connected-padding = 1
+
+label-disconnected ="%{A3:nm-connection-editor:}%{T4}%{F#f00}睊 %{T-}%{T1} No Connection%{A}"
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected-background= ${self.format-connected-background}
+
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = "%a, %b %d %I:%M %p"
+
+
+
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #0a6cf5
+
+label = %date% 
+label-font = 1
+format-padding=1
+
+format-background = ${colors.background}
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_38_00.6.analog-stereo
+
+format-volume = <label-volume> <bar-volume>
+label-volume = VOL %percentage%%
+label-volume-foreground = ${root.foreground}
+
+label-muted =  Spkr muted
+label-muted-foreground = #ff3200
+label-muted-background = ${colors.background}
+
+
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-underline = #8D38DE
+bar-volume-underline =#8D38DE 
+
+
+format-volume-padding=1
+format-volume-background = ${colors.background}
+bar-volume-background = ${colors.background}
+
+label-muted-underline = #8D38DE
+label-volume-underline = #8D38DE
+
+click-right = pavucontrol
+
+[module/vpn]
+type = custom/script
+label-font = 1
+exec = bash ~/.config/polybar/vpnCheck.sh
+label = %output%
+
+interval = 5
+
+format-padding=1
+format-background = ${colors.background}
+
+[module/round-right]
+type = custom/text
+content = %{T3}
+content-foreground = ${colors.background}
+content-padding = 0
+
+[module/round-left]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = ${colors.background}
+
+[module/margin]
+type = custom/text
+
+content = %{T3}%{T-}
+content-foreground = ${colors.trans}
+
+[module/weather]
+type = custom/script
+label-font = 4
+exec = python3 ~/.config/polybar/weather.py
+format = <label> 
+format-background = ${colors.background}
+format-padding = 1
+
+format-underline = #F8C902
+label = %output:0:30:...%
+interval = 1800
+
+
+[module/powermenu]
+type = custom/menu
+
+; If true, <label-toggle> will be to the left of the menu items (default).
+; If false, it will be on the right of all the items.
+expand-right = false
+label-open = %{T4} %{T-}  
+label-close= %{T4}ﰲ %{T-}
+label-separator = %{T4}|%{T-}
+format-background = ${colors.background}
+format-underline = #4EC0E6
+format-padding = 1
+
+; "menu-LEVEL-N" has the same properties as "label-NAME" with
+; the additional "exec" property
+;
+; Commands will be executed using "/bin/sh -c $COMMAND"
+
+menu-0-0 = %{T4}ﮤ %{T-}
+menu-0-0-exec = menu-open-1
+menu-0-1 = %{T4}ﯩ %{T-}
+menu-0-1-exec = menu-open-2
+menu-0-2 = %{T4} %{T-}
+menu-0-2-exec = ~/.config/polybar/i3lock.sh
+
+menu-1-1 = %{F#00B300}%{T4} %{T-}
+menu-1-1-exec = poweroff
+menu-1-0 = %{F#f00}%{T4} %{T-}
+menu-1-0-exec = 
+
+menu-2-1 = %{F#00B300}%{T4} %{T-}
+menu-2-1-exec = reboot
+menu-2-0 = %{F#f00}%{T4} %{T-}
+menu-2-0-exec = 
+
+#hacky way of making desktop image change without actually having to create a script
+[module/backgroundChange]
+type=custom/script
+exec = cd ~/Pictures/Wallpapers && feh --bg-scale $(ls | shuf -n 1)
+interval = 600
+label = ""
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+
+; vim: set filetype=dosini:
