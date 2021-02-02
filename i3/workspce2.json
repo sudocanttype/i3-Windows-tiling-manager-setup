@@ -1,0 +1,68 @@
+{
+    "border": "normal",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 410,
+       "width": 654,
+       "x": 0,
+       "y": 0
+    },
+    "name": "oscar@oscar-desktop: ~",
+    "percent": 0.5,
+    "swallows": [
+       {
+        "class": "^Gnome\\-terminal$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 567,
+               "width": 1916,
+               "x": 1922,
+               "y": 20
+            },
+            "name": "#general",
+            "percent": 0.5,
+            "swallows": [
+               {
+               "class": "^Discord$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1156,
+               "width": 1916,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Volume Control",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "instance": "^pavucontrol$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
