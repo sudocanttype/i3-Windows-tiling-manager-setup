@@ -7,7 +7,7 @@ My current setup for a i3 using polybar and i3lock-color. <br/>
 ## Prerequisites
   * [Polybar](https://github.com/polybar/polybar) and its dependencies
   * [i3lock-color](https://github.com/Raymo111/i3lock-color)
-  * [i3 WM](https://i3wm.org/downloads/)
+  * [i3-gaps WM](https://github.com/Airblader/i3)
   * UbuntuMono Nerd Font Mono **AND** UbuntuMono Nerd Font. [Choose the fonts from here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/UbuntuMono/Regular/complete)
   * [The Calvin And Hobbes Font](https://www.dafont.com/calvin-and-hobbes.font)
   * feh
