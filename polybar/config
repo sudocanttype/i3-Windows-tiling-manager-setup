@@ -47,8 +47,9 @@ font-0 = "UbuntuMono Nerd Font Mono:style=Regular:pixelsize=12;0"
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = "UbuntuMono Nerd Font:size=21;5"
 font-3 = "UbuntuMono Nerd Font:size=12;0"
+font-4 = "Noto Sans Mono CJK JP:style=Regular:size=10;2"
 
-modules-left = i3 round-right margin round-left weather round-right margin round-left vpn round-right margin
+modules-left = margin round-left i3 round-right margin round-left weather round-right margin round-left vpn round-right margin
 modules-center = backgroundChange 
 modules-right = round-left pulseaudio memory cpu wlan date powermenu 
 
@@ -93,6 +94,7 @@ font-0 = "UbuntuMono Nerd Font Mono:style=Regular:pixelsize=12;0"
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = "UbuntuMono Nerd Font :size=22;5"
 font-3 = "UbuntuMono Nerd Font:size=12;0"
+font-4 = "Noto Sans Mono CJK JP:style=Regular:size=10;2"
 
 modules-left = i3 round-right margin
 modules-center = 
@@ -132,29 +134,33 @@ index-sort = true
 wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
-pin-workspaces = true
+pin-workspaces = false
 
-label-mode-padding = 2
+label-mode-padding = 0
+label-mode-width = 330px
 label-mode-foreground = #000
 label-mode-background = ${colors.background}
 
+
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %{T5}%icon%%{T-}
 label-focused-background = ${colors.background}
 label-focused-underline= ${colors.primary}
 label-focused-foreground= ${colors.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %{T5}%icon%%{T-}
+
 label-unfocused-padding = 2
 label-unfocused-background = ${colors.background}
-label-unfocused-underline= #11AB84 
+; label-unfocused-underline= #11AB84 
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %{T5}%icon%%{T-}
+
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+; label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -167,6 +173,17 @@ label-urgent-padding = 2
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
+
+ws-icon-0 = 1;Ⅰ   
+ws-icon-1 = 2;Ⅱ   
+ws-icon-2 = 3;Ⅲ
+ws-icon-3 = 4;Ⅳ   
+ws-icon-4 = 5;Ⅴ
+ws-icon-5 = 6;Ⅵ
+ws-icon-6 = 7;Ⅶ   
+ws-icon-7 = 8;Ⅷ
+ws-icon-8 = 9;Ⅸ
+ws-icon-9 = 10;Ⅹ
 
 [module/cpu]
 type = internal/cpu
@@ -196,6 +213,7 @@ format-padding=1
 type = internal/network
 interface = wlp31s0
 interval = 1.0
+
 
 format-padding=1
 format-connected = <label-connected>
