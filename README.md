@@ -14,6 +14,10 @@ My current setup for a i3 using polybar and i3lock-color. <br/>
   * python dotenv
   * xautolock
   * Compton (nice, but not necessary)
+  * Starship
+  * NetworkManager (and nm-connection-editor)
+  * fortune
+  * [thefuck](https://github.com/nvbn/thefuck)
 
 ## Installation
 Copy the i3 folder into your home dir, then make it hidden by appending a period. It should look like ```$HOME/.i3/the-files```. Then, copy the polybar folder into ```$HOME/.config```. If it already exists, delete the base polybar folder. Thats it! <br/><br/>
