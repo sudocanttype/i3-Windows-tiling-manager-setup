@@ -41,6 +41,9 @@ bindsym Mod1+Return exec i3-sensible-terminal
 # kill focused window
 bindsym Mod1+Shift+q kill
 
+#run ksnip in snapshot mode
+bindsym Mod1+Shift+s exec "ksnip -r"
+
 # start dmenu (a program launcher)
 bindsym Mod1+d exec "rofi -show run -theme sidetab-adapta"
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -55,16 +58,16 @@ bindsym Mod1+Ctrl+$up focus up
 bindsym Mod1+Ctrl+$right focus right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod1+Left focus left
+bindsym Mod1+Left focus left 
 bindsym Mod1+Down focus down
-bindsym Mod1+Up focus up
-bindsym Mod1+Right focus right
+bindsym Mod1+Up focus up 
+bindsym Mod1+Right focus right 
 
 # move focused window
-bindsym Mod1+Shift+$left move left
-bindsym Mod1+Shift+$down move down
-bindsym Mod1+Shift+$up move up
-bindsym Mod1+Shift+$right move right
+bindsym Mod1+Shift+$left move left 50px
+bindsym Mod1+Shift+$down move down 50px 
+bindsym Mod1+Shift+$up move up 50px
+bindsym Mod1+Shift+$right move right 50px
 
 # alternatively, you can use the cursor keys:
 bindsym Mod1+Shift+Left move left
@@ -191,7 +194,6 @@ smart_borders no_gaps
 
 #Startup 
 
-exec --no-startup-id workrave
 #Volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 +5% && killall -SIGUSR1 i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 -5% && killall -SIGUSR1 i3status
@@ -201,7 +203,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle && killa
 # bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 #Monitor Config
-set $monitor_left HDMI-A-0
+set $monitor_left DisplayPort-0
 set $monitor_right DisplayPort-1
 exec_always --no-startup-id ~/.i3/startScript.sh
 workspace 1 output $monitor_left
@@ -219,34 +221,40 @@ workspace 10 output $monitor_right
 # readded to polybar
 
 #compton screen rendering 
-exec --no-startup-id compton --config ~/.config/compton.conf -b
-exec --no-startup-id cd ~/Pictures/Wallpapers && feh --bg-scale $(ls | shuf -n 1)
-# exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/ 
+exec_always --no-startup-id "pkill -HUP picom ; picom --config ~/.config/compton.conf -b"
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/mountains-on-mars.png --bg-scale ~/Pictures/Wallpapers/redLong.png
 
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-exec_always --no-startup-id xautolock -locker "cd ~/.config/polybar && bash i3lock.sh" -time 15 &
+exec_always --no-startup-id xautolock -locker "cd ~/.config/polybar && bash i3lock.sh" -time 15 -corners ---- &
 
-exec --no-startup-id key-mapper-control --command autoload
+exec_always --no-startup-id key-mapper-control --command autoload
 
-exec --no-startup-id polychromatic-tray-applet
-
+exec --no-startup-id polychromatic-tray-applet 
 exec --no-startup-id nm-applet
 
 #Make some apps only open on certain wksps
 #set default layout
-exec --no-startup-id "i3-msg 'workspace 2;  append_layout ~/.i3/workspce2.json'"
-for_window [class="Discord"] split vertical 
+exec --no-startup-id "i3-msg 'workspace 4;  append_layout ~/.i3/workspce2.json'"
+exec --no-startup-id "i3-msg 'workspace 2;  append_layout ~/.i3/workspace-1.json'"
+
+exec --no-startup-id "i3-msg 'workspace 1;  exec /usr/bin/firefox'"
+exec --no-startup-id "i3-msg 'workspace 2;  exec /usr/bin/gnome-terminal'"
+exec --no-startup-id "i3-msg 'workspace 4;  exec /usr/bin/Discord; exec /usr/bin/pavucontrol'"
+
+# for_window [class="Discord"] split vertical 
 for_window [title="Volume Control"] split vertical
-assign [class="Discord"] → 2
-assign [title="Volume Control"]→ 2
-for_window [class="ksnip"] floating enable, move container to workspace 2
+# assign [class="Discord"] → 2
+assign [title="Volume Control"]→ 4
+for_window [class="ksnip"] floating enable
 for_window [class="Nemo"] floating enable
 for_window [class="tModLoader.bin.x86_64"] move container to workspace 1, layout stacking
 for_window [class="polychromatic-controller"] floating enable
 for_window [title="System Monitor"] floating enable
 for_window [title="PlayOnLinux"] floating enable
+for_window [title="Android Emulator*"] floating enable
 
 for_window [class="Gnome-terminal"] border normal 
+for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class=".*"] border pixel 2
