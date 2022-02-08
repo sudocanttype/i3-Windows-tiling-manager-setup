@@ -1,0 +1,20 @@
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 410,
+       "width": 654,
+       "x": 0,
+       "y": 0
+    },
+    "name": "nvim /home/oscar",
+    "percent": 1,
+    "swallows": [
+       {
+       "class": "^Gnome\\-terminal$"
+       }
+    ],
+    "type": "con"
+}
+
