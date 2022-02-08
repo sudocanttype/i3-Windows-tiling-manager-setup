@@ -1,4 +1,5 @@
 ;==========================================================
+;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
 ;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
 ;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
@@ -10,26 +11,25 @@
 
 [colors]
 ; background = ${xrdb:color0:#222}
-background = #e1222000
+background = #101316
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
+primary = #0b7c84 secondary = #e60053
 alert = #bd2c40
 
 trans = #00000000
 semi-trans-black = #cc000000
 
 [bar/bar1]
-monitor = ${env:MONITOR:HDMI-A-0}
+monitor = ${env:MONITOR:DisplayPort-0}
 width = 100%
-height = 27
+height = 22
 radius = 0
 fixed-center = false
 
-background = ${colors.trans}
+background = ${colors.background}
 foreground = ${colors.foreground} 
 line-size = 3
 line-color = #f00
@@ -47,15 +47,18 @@ font-0 = "UbuntuMono Nerd Font Mono:style=Regular:pixelsize=12;0"
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = "UbuntuMono Nerd Font:size=21;5"
 font-3 = "UbuntuMono Nerd Font:size=12;0"
-font-4 = "Noto Sans Mono CJK JP:style=Regular:size=10;2"
+; font-4 = "Noto Sans Mono CJK JP:style=Regular:size=10;2"
+font-4 = "UbuntuMono Nerd Font Mono:style=Bold:pixelsize=14;2"
 
-modules-left = margin round-left i3 round-right margin round-left weather round-right margin round-left vpn round-right margin
-modules-center = backgroundChange 
-modules-right = round-left pulseaudio memory cpu wlan date powermenu 
+modules-left = margin round-left i3 round-right margin round-left round-right margin round-left vpn round-right margin
+; modules-center = backgroundChange 
+modules-right = round-left pulseaudio wlan weather date powermenu 
 
 tray-position =  none
 tray-padding = 1
-tray-background = ${colors.background}
+tray-background = ${xrdb:color0:#222}
+
+; ${colors.background}
 
 
 ; scroll-up = i3wm-wsnext
@@ -73,7 +76,7 @@ height = 27
 radius = 
 fixed-center = false
 
-background = ${colors.trans}
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -94,7 +97,8 @@ font-0 = "UbuntuMono Nerd Font Mono:style=Regular:pixelsize=12;0"
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = "UbuntuMono Nerd Font :size=22;5"
 font-3 = "UbuntuMono Nerd Font:size=12;0"
-font-4 = "Noto Sans Mono CJK JP:style=Regular:size=10;2"
+;font-4 = "Noto Sans Mono CJK JP:style=Regular:size=10;2"
+font-4 = "UbuntuMono Nerd Font Mono:style=Regular:pixelsize=15;2"
 
 modules-left = i3 round-right margin
 modules-center = 
@@ -102,7 +106,8 @@ modules-right = round-left memory cpu round-right margin
 
 tray-position = right
 tray-padding = 2
-tray-background = %{colors.semi-trans-black}
+tray-background = ${xrdb:color0:#222}
+;%{colors.semi-trans-black}
 
 ; override-redirect = true
 
@@ -143,29 +148,32 @@ label-mode-background = ${colors.background}
 
 
 ; focused = Active workspace on focused monitor
-label-focused = %{T5}%icon%%{T-}
+; label-focused = %{T5}%icon%%{T-}
+label-focused = %{T5}%{T-}
 label-focused-background = ${colors.background}
-label-focused-underline= ${colors.primary}
+; label-focused-underline= ${colors.primary}
 label-focused-foreground= ${colors.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %{T5}%icon%%{T-}
+label-unfocused = %{T5}%{T-}
+; label-unfocused = %{T5}%icon%%{T-}
 
 label-unfocused-padding = 2
 label-unfocused-background = ${colors.background}
 ; label-unfocused-underline= #11AB84 
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %{T5}%icon%%{T-}
+; label-visible = %{T5}%icon%%{T-}
+label-visible= %{T5}%{T-}
 
 label-visible-background = ${self.label-focused-background}
 ; label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
-label-urgent-background = ${colors.alert}
+label-urgent= %{T5}%{T-}
+; label-urgent-background = ${colors.background}
 label-urgent-padding = 2
 
 ; Separator in between workspaces
@@ -174,16 +182,17 @@ label-urgent-padding = 2
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-ws-icon-0 = 1;Ⅰ   
-ws-icon-1 = 2;Ⅱ   
-ws-icon-2 = 3;Ⅲ
-ws-icon-3 = 4;Ⅳ   
-ws-icon-4 = 5;Ⅴ
-ws-icon-5 = 6;Ⅵ
-ws-icon-6 = 7;Ⅶ   
-ws-icon-7 = 8;Ⅷ
-ws-icon-8 = 9;Ⅸ
-ws-icon-9 = 10;Ⅹ
+;ws-icon-0 = 1;Ⅰ   
+; ws-icon-0 = 1;   
+; ws-icon-1 = 2;Ⅱ   
+; ws-icon-2 = 3;Ⅲ
+; ws-icon-3 = 4;Ⅳ   
+; ws-icon-4 = 5;Ⅴ
+; ws-icon-5 = 6;Ⅵ
+; ws-icon-6 = 7;Ⅶ   
+; ws-icon-7 = 8;Ⅷ
+; ws-icon-8 = 9;Ⅸ
+; ws-icon-9 = 10;Ⅹ
 
 [module/cpu]
 type = internal/cpu
@@ -249,13 +258,14 @@ format-background = ${colors.background}
 type = internal/pulseaudio
 sink = alsa_output.pci-0000_38_00.6.analog-stereo
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume> 
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted =  Spkr muted
+label-muted =  Muted
 label-muted-foreground = #ff3200
 label-muted-background = ${colors.background}
+label-padding = 2
 
 
 
@@ -279,7 +289,7 @@ bar-underline = #8D38DE
 bar-volume-underline =#8D38DE 
 
 
-format-volume-padding=1
+format-volume-padding=0
 format-volume-background = ${colors.background}
 bar-volume-background = ${colors.background}
 
@@ -324,7 +334,7 @@ format = <label>
 format-background = ${colors.background}
 format-padding = 1
 
-format-underline = #F8C902
+format-underline = #608AF5
 label = %output:0:30:...%
 interval = 1800
 
@@ -353,6 +363,8 @@ menu-0-1 = %{T4}ﯩ %{T-}
 menu-0-1-exec = menu-open-2
 menu-0-2 = %{T4} %{T-}
 menu-0-2-exec = ~/.config/polybar/i3lock.sh
+menu-0-3 = %{T4}⏾ %{T-}
+menu-0-3-exec = ~/.config/polybar/i3lock.sh && sudo pm-suspend
 
 menu-1-1 = %{F#00B300}%{T4} %{T-}
 menu-1-1-exec = poweroff
@@ -365,11 +377,11 @@ menu-2-0 = %{F#f00}%{T4} %{T-}
 menu-2-0-exec = 
 
 #hacky way of making desktop image change without actually having to create a script
-[module/backgroundChange]
-type=custom/script
-exec = cd ~/Pictures/Wallpapers && feh --bg-scale $(ls | shuf -n 1)
-interval = 600
-label = ""
+; [module/backgroundChange]
+; type=custom/script
+; exec = cd ~/Pictures/Wallpapers && feh --bg-scale $(ls | shuf -n 1)
+; interval = 600
+; label = ""
 
 
 [settings]
