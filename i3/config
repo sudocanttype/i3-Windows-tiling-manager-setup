@@ -42,7 +42,7 @@ bindsym Mod1+Return exec i3-sensible-terminal
 bindsym Mod1+Shift+q kill
 
 #run ksnip in snapshot mode
-bindsym Mod1+Shift+s exec "ksnip -r"
+bindsym Mod1+Shift+s exec "flameshot gui"
 
 # start dmenu (a program launcher)
 bindsym Mod1+d exec "rofi -show run -theme sidetab-adapta"
@@ -195,17 +195,22 @@ smart_borders no_gaps
 #Startup 
 
 #Volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 +5% && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 -5% && killall -SIGUSR1 i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle && killall -SIGUSR1 i3status
-# bindsym XF86AudioRaiseVolume exec "pactl set-sink-mute 1 0 && amixer -c 1 -q sset Master 5+ unmute && killall -SIGUSR1 i3status"
-# bindsym XF86AudioLowerVolume exec "pactl set-sink-mute 1 0 && amixer -c 1 -q sset Master 5- unmute && killall -SIGUSR1 i3status"
-# bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle 
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 32 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 32 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 32 toggle 
 
+#bind F8 and F9 to change audio
+bindsym mod1+F9 exec --no-startup-id 'bash ~/.config/i3/change_ee_outputs.sh alsa_output.pci-0000_38_00.6.analog-stereo'
+bindsym mod1+F8 exec --no-startup-id 'bash ~/.config/i3/change_ee_outputs.sh alsa_output.usb-Logitech_Logitech_G430_Gaming_Headset-00.analog-stereo'
 #Monitor Config
-set $monitor_left DisplayPort-0
-set $monitor_right DisplayPort-1
-exec_always --no-startup-id ~/.i3/startScript.sh
+#set $monitor_left DisplayPort-0
+#set $monitor_right DisplayPort-1
+set $monitor_left HDMI-A-0
+set $monitor_right DisplayPort-0
+exec_always --no-startup-id ~/.config/i3/startScript.sh
 workspace 1 output $monitor_left
 workspace 2 output $monitor_right
 workspace 3 output $monitor_left
@@ -222,34 +227,36 @@ workspace 10 output $monitor_right
 
 #compton screen rendering 
 exec_always --no-startup-id "pkill -HUP picom ; picom --config ~/.config/compton.conf -b"
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/mountains-on-mars.png --bg-scale ~/Pictures/Wallpapers/redLong.png
 
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-exec_always --no-startup-id xautolock -locker "cd ~/.config/polybar && bash i3lock.sh" -time 15 -corners ---- &
+# exec_always --no-startup-id xautolock -locker "cd ~/.config/polybar && bash i3lock.sh" -time 15 -corners ---- &
 
-exec_always --no-startup-id key-mapper-control --command autoload
+# exec_always --no-startup-id key-mapper-control --command autoload
 
-exec --no-startup-id polychromatic-tray-applet 
-exec --no-startup-id nm-applet
+exec_always --no-startup-id "sleep .75 && xrandr --output HDMI-A-0 --mode 1920x1080 --rate 144"
+
+# exec --no-startup-id polychromatic-tray-applet 
+# exec --no-startup-id nm-applet
 
 #Make some apps only open on certain wksps
 #set default layout
 exec --no-startup-id "i3-msg 'workspace 4;  append_layout ~/.i3/workspce2.json'"
 exec --no-startup-id "i3-msg 'workspace 2;  append_layout ~/.i3/workspace-1.json'"
 
-exec --no-startup-id "i3-msg 'workspace 1;  exec /usr/bin/firefox'"
-exec --no-startup-id "i3-msg 'workspace 2;  exec /usr/bin/gnome-terminal'"
-exec --no-startup-id "i3-msg 'workspace 4;  exec /usr/bin/Discord; exec /usr/bin/pavucontrol'"
+exec --no-startup-id "i3-msg 'workspace 1;  exec /usr/bin/librewolf'"
+exec --no-startup-id "i3-msg 'workspace 2;  exec /usr/bin/terminator'"
+exec --no-startup-id "i3-msg 'workspace 4;  exec /usr/bin/brave discord.com/app; exec /usr/bin/easyeffects'"
 
+exec_always --no-startup-id "sleep 1 && feh ~/Pictures/Wallpapers/background_right.jpg --bg-scale ~/Pictures/Wallpapers/background_left.jpg"
 # for_window [class="Discord"] split vertical 
 for_window [title="Volume Control"] split vertical
 # assign [class="Discord"] → 2
 assign [title="Volume Control"]→ 4
 for_window [class="ksnip"] floating enable
 for_window [class="Nemo"] floating enable
-for_window [class="tModLoader.bin.x86_64"] move container to workspace 1, layout stacking
+for_window [class="mono-sgen"] layout stacking
 for_window [class="polychromatic-controller"] floating enable
 for_window [title="System Monitor"] floating enable
 for_window [title="PlayOnLinux"] floating enable
