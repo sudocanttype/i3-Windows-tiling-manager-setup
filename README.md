@@ -8,6 +8,7 @@ My current setup for a i3 using polybar and i3lock-color. <br/>
   * [i3lock-color](https://github.com/Raymo111/i3lock-color)
   * [i3-gaps WM](https://github.com/Airblader/i3)
   * UbuntuMono Nerd Font Mono **AND** UbuntuMono Nerd Font. [Choose the fonts from here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/UbuntuMono/Regular/complete)
+  * rofi
   * feh
   * python dotenv
   * xautolock
@@ -17,6 +18,10 @@ My current setup for a i3 using polybar and i3lock-color. <br/>
   * fortune
   * [thefuck](https://github.com/nvbn/thefuck)
   * exa
+  * terminator
+  * Pipewire
+  * Easyeffects
+  * Flameshot
 
 ## Installation
 Copy the i3 folder into your home dir, then make it hidden by appending a period. It should look like ```$HOME/.i3/the-files```. Then, copy the polybar folder into ```$HOME/.config```. If it already exists, delete the base polybar folder. Thats it! <br/><br/>
