@@ -5,19 +5,18 @@ My current setup for a i3 using polybar and i3lock-color. <br/>
 <img alt='Lock screen' src='https://github.com/sudocanttype/i3-Windows-tiling-manager-setup/blob/main/img/image-locked.png'>
 
 ## Prerequisites
-  * [Polybar](https://github.com/polybar/polybar) and its dependencies
   * [i3lock-color](https://github.com/Raymo111/i3lock-color)
   * [i3-gaps WM](https://github.com/Airblader/i3)
   * UbuntuMono Nerd Font Mono **AND** UbuntuMono Nerd Font. [Choose the fonts from here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/UbuntuMono/Regular/complete)
-  * [The Calvin And Hobbes Font](https://www.dafont.com/calvin-and-hobbes.font)
   * feh
   * python dotenv
   * xautolock
-  * Compton (nice, but not necessary)
+  * picom (nice, but not necessary)
   * Starship
   * NetworkManager (and nm-connection-editor)
   * fortune
   * [thefuck](https://github.com/nvbn/thefuck)
+  * exa
 
 ## Installation
 Copy the i3 folder into your home dir, then make it hidden by appending a period. It should look like ```$HOME/.i3/the-files```. Then, copy the polybar folder into ```$HOME/.config```. If it already exists, delete the base polybar folder. Thats it! <br/><br/>
