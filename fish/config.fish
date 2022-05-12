@@ -3,14 +3,17 @@ thefuck --alias | source
 
 set BRUH $PWD
 # Aliases
-alias linuxmasterrace="neofetch --disable cpu gpu memory resolution --color_blocks off | lolcat"
-alias python=python3.6
-alias nv=nvim
-alias tess="tesseract tess.png stdout --psm 6"
+alias linuxmasterrace="neofetch | lolcat"
 alias ..="cd .."
 alias manage="python manage.py"
-alias sact="source venv/bin/activate"
-alias settings="cinnamon-settings"
-alias nemo="nemo ."
+alias sact=". venv/bin/activate.fish"
+alias unfuck_wifi="sudo systemctl restart NetworkManager "
+alias ls=exa
+
+#bindings
+bind \cd forward-word
+
 
 starship init fish | source
+
+set -gx EDITOR nvim
