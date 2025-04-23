@@ -1,0 +1,3 @@
+#!/bin/bash
+virsh -c qemu:///system attach-device --domain Gaming1 /etc/libvirt/qemu/mouse.xml
+
