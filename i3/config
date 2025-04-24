@@ -210,6 +210,8 @@ exec_always --no-startup-id "sleep 1 && feh ~/.config/i3/wallpapers/nice.jpg --b
 exec --no-startup-id "sleep 1 && i3-msg 'workspace 4;  exec /usr/bin/brave; exec /usr/bin/thunderbird'"
 exec --no-startup-id "sleep 1 && i3-msg 'workspace 10;exec /usr/bin/easyeffects'"
 exec --no-startup-id "sleep 2 && i3-msg 'workspace 9;  exec /usr/bin/nextcloud ; exec /usr/bin/workrave'"
+
+exec --no-startup-id "/usr/bin/polybar bar1"
 assign [class="easyeffects"]→ 10
 
 for_window [title="Workrave"] floating disable 
