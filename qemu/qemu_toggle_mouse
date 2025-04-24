@@ -1,0 +1,12 @@
+#!/bin/bash
+ACTIVE=$(virsh -c qemu:///system dumpxml Gaming1 | grep 0x0073)
+echo $ACTIVE
+
+if [ -n ACTIVE ]; then
+	# echo "attach"
+	virsh -c qemu:///system attach-device --domain Gaming1 /etc/libvirt/qemu/mouse.xml
+else
+	# echo "detach"
+	virsh -c qemu:///system detach-device --domain Gaming1 /etc/libvirt/qemu/mouse.xml
+fi
+

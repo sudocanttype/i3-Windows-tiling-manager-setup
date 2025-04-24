@@ -1,3 +1,0 @@
-#!/bin/bash
-virsh -c qemu:///system detach-device --domain Gaming1 /etc/libvirt/qemu/mouse.xml
-
