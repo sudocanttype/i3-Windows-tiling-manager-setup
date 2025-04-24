@@ -53,8 +53,6 @@ def getWeather(apikey, location, apiUnits):
     }
 
 if __name__ == "__main__":
-
-    f = open('weatherlog.txt', "w")
     apikey = os.getenv("WEATHER_API_KEY")
     apikey = "60f508916ceafe5568e159a04b01ae20" #good ol lazy hardcoding what could go wrong
     location = 'richardson, texas'
@@ -72,7 +70,6 @@ if __name__ == "__main__":
         except Exception as e:
             time.sleep(2)
             fuck = str(e)
-            f.write(fuck)
 
             continue
         print(f'{weatherIcon}  {weather.title()}, {temp_actual}°F')
@@ -80,4 +77,3 @@ if __name__ == "__main__":
 
         break
     print(fuck)
-    f.close()
