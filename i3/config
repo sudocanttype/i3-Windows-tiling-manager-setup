@@ -163,7 +163,10 @@ mode "resize" {
         bindsym Mod1+r mode "default"
 }
 
+# Qemu Shit
+bindsym Mod1+Shift+m exec /usr/local/bin/qemu_toggle_mouse
 bindsym Mod1+r mode "resize"
+bindsym Mod4+l exec i3lock
 
 #i3-gaps
 
@@ -232,5 +235,3 @@ for_window [title="Android Emulator*"] floating enable
 
 for_window [class=".*"] border pixel 2
 
-# Qemu Shit
-bindsym Mod1+Shift+m exec /usr/local/bin/qemu_toggle_mouse
