@@ -212,8 +212,8 @@ exec --no-startup-id "sleep 1 && i3-msg 'workspace 10;exec /usr/bin/easyeffects'
 exec --no-startup-id "sleep 2 && i3-msg 'workspace 9;  exec /usr/bin/nextcloud ; exec /usr/bin/workrave'"
 assign [class="easyeffects"]→ 10
 
-for_window [class="Workrave"] floating disable 
-assign [class="Workrave"] 9
+for_window [title="Workrave"] floating disable 
+assign [title="Workrave"] 9
 
 assign [class="Nextcloud"]→ 9
 
