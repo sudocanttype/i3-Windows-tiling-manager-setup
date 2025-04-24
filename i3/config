@@ -31,7 +31,7 @@ floating_modifier Mod1
 ########################################
 
 # start a terminal
-bindsym Mod1+Return exec i3-sensible-terminal
+bindsym Mod1+Return exec terminator
 
 # kill focused window
 bindsym Mod1+Shift+q kill
@@ -184,13 +184,13 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 32 toggle 
 
 #bind F8 and F9 to change audio
-bindsym mod1+F9 exec --no-startup-id 'bash ~/.config/i3/change_ee_outputs.sh alsa_output.pci-0000_38_00.6.analog-stereo'
-bindsym mod1+F8 exec --no-startup-id 'bash ~/.config/i3/change_ee_outputs.sh alsa_output.usb-Logitech_Logitech_G430_Gaming_Headset-00.analog-stereo'
+# bindsym mod1+F9 exec --no-startup-id 'bash ~/.config/i3/change_ee_outputs.sh alsa_output.pci-0000_38_00.6.analog-stereo'
+# bindsym mod1+F8 exec --no-startup-id 'bash ~/.config/i3/change_ee_outputs.sh alsa_output.usb-Logitech_Logitech_G430_Gaming_Headset-00.analog-stereo'
 #Monitor Config
 #set $monitor_left DisplayPort-0
 #set $monitor_right DisplayPort-1
-set $monitor_left HDMI-A-0
-set $monitor_right DisplayPort-0
+set $monitor_left HDMI-0
+set $monitor_right DVI-D-0
 exec_always --no-startup-id ~/.config/i3/startScript.sh
 workspace 1 output $monitor_left
 workspace 2 output $monitor_right
@@ -204,30 +204,33 @@ workspace 9 output $monitor_left
 workspace 10 output $monitor_right
 
 #compton screen rendering 
-exec_always --no-startup-id "pkill -HUP picom ; picom --config ~/.config/compton.conf -b"
+# exec_always --no-startup-id "pkill -HUP picom ; picom --config ~/.config/compton.conf -b"
 
 # exec_always --no-startup-id xautolock -locker "cd ~/.config/polybar && bash i3lock.sh" -time 15 -corners ---- &
-
-# delay due to collisions with other scripts
-exec_always --no-startup-id "sleep .75 && xrandr --output HDMI-A-0 --mode 1920x1080 --rate 144"
-
-
-#Make some apps only open on certain wksps
-#set default layout
-exec --no-startup-id "i3-msg 'workspace 4;  append_layout ~/.i3/workspce2.json'"
-exec --no-startup-id "i3-msg 'workspace 2;  append_layout ~/.i3/workspace-1.json'"
 
 exec --no-startup-id "i3-msg 'workspace 1;  exec /usr/bin/librewolf'"
 exec --no-startup-id "i3-msg 'workspace 2;  exec /usr/bin/terminator'"
 
-exec_always --no-startup-id "sleep 1 && feh ~/Pictures/Wallpapers/background_right.jpg --bg-scale ~/Pictures/Wallpapers/background_left.jpg"
-exec --no-startup-id "sleep 1 && i3-msg 'workspace 4;  exec /usr/bin/brave discord.com/app; exec /usr/bin/easyeffects'"
+# Startup
+exec_always --no-startup-id "sleep 1 && feh ~/.config/i3/wallpapers/nice.jpg --bg-scale ~/.config/i3/wallpapers/nice.jpg --bg-fill"
+exec --no-startup-id "sleep 1 && i3-msg 'workspace 4;  exec /usr/bin/brave discord.com/app; exec /usr/bin/thunderbird'"
+exec --no-startup-id "sleep 1 && i3-msg 'workspace 10;exec /usr/bin/easyeffects'"
+exec --no-startup-id "sleep 2 && i3-msg 'workspace 9;  exec /usr/bin/nextcloud ; exec /usr/bin/workrave'"
+assign [class="easyeffects"]→ 10
+
+for_window [class="Workrave"] floating disable 
+assign [class="Workrave"] 9
+
+assign [class="Nextcloud"]→ 9
+
 
 for_window [class="Brave-browser"] split vertical 
 for_window [class="easyeffects"] split vertical
 assign [class="Brave-browser"] → 4
-assign [class="easyeffects"]→ 4
 
 for_window [title="Android Emulator*"] floating enable
 
 for_window [class=".*"] border pixel 2
+
+# Qemu Shit
+bindsym Mod1+Shift+m exec /usr/local/bin/qemu_toggle_mouse
