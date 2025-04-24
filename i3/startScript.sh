@@ -1,4 +1,6 @@
 #!/bin/bash
 #Makes sure that the monitor config is correct
-xrandr --output HDMI-A-0 --auto --primary --left-of DisplayPort-1
-xrandr --output DisplayPort-1 --rotate left
+MAINMONITOR=HDMI-0
+RIGHTMONITOR=DVI-D-0
+xrandr --output  $MAINMONITOR --auto --primary --left-of $RIGHTMONITOR 
+xrandr --output $RIGHTMONITOR --rotate left --scale 1.5x1.5
