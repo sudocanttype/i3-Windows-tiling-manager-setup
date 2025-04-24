@@ -4,9 +4,6 @@ import os
 import time
 
 import requests
-from dotenv import load_dotenv
-
-load_dotenv()
 
 def getWeather(apikey, location, apiUnits):
     #extract dat data
@@ -58,8 +55,9 @@ def getWeather(apikey, location, apiUnits):
 if __name__ == "__main__":
 
     f = open('weatherlog.txt', "w")
-    apikey = os.getenv("API")
-    location = 'houston'
+    apikey = os.getenv("WEATHER_API_KEY")
+    apikey = "60f508916ceafe5568e159a04b01ae20" #good ol lazy hardcoding what could go wrong
+    location = 'richardson, texas'
     apiUnits = 'imperial' #for us filthy americans
     #wait a couple seconds on run, because for some reason without this it returns HTTPSConnectionPool Max retries exceeded
     #also added fallback because it would give errors
