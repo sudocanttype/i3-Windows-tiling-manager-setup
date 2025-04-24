@@ -213,7 +213,7 @@ exec --no-startup-id "i3-msg 'workspace 2;  exec /usr/bin/terminator'"
 
 # Startup
 exec_always --no-startup-id "sleep 1 && feh ~/.config/i3/wallpapers/nice.jpg --bg-scale ~/.config/i3/wallpapers/nice.jpg --bg-fill"
-exec --no-startup-id "sleep 1 && i3-msg 'workspace 4;  exec /usr/bin/brave discord.com/app; exec /usr/bin/thunderbird'"
+exec --no-startup-id "sleep 1 && i3-msg 'workspace 4;  exec /usr/bin/brave; exec /usr/bin/thunderbird'"
 exec --no-startup-id "sleep 1 && i3-msg 'workspace 10;exec /usr/bin/easyeffects'"
 exec --no-startup-id "sleep 2 && i3-msg 'workspace 9;  exec /usr/bin/nextcloud ; exec /usr/bin/workrave'"
 assign [class="easyeffects"]→ 10
