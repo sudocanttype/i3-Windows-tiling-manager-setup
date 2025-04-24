@@ -218,7 +218,7 @@ for_window [title="Workrave"] floating disable
 assign [title="Workrave"] 9
 
 assign [class="Nextcloud"]→ 9
-for_window [title="Extension:.*Bitwarden.*"] resize set 400 650
+for_window [title="Extension:.*Bitwarden.*"] resize set 550 650
 
 
 for_window [class="Brave-browser"] split vertical 
