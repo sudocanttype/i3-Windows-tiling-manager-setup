@@ -119,17 +119,16 @@ label-urgent-padding = 2
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-;ws-icon-0 = 1;Ⅰ   
-; ws-icon-0 = 1;   
-; ws-icon-1 = 2;Ⅱ   
-; ws-icon-2 = 3;Ⅲ
-; ws-icon-3 = 4;Ⅳ   
-; ws-icon-4 = 5;Ⅴ
-; ws-icon-5 = 6;Ⅵ
-; ws-icon-6 = 7;Ⅶ   
-; ws-icon-7 = 8;Ⅷ
-; ws-icon-8 = 9;Ⅸ
-; ws-icon-9 = 10;Ⅹ
+ws-icon-0 = 1;Ⅰ   
+ws-icon-1 = 2;Ⅱ   
+ws-icon-2 = 3;Ⅲ
+ws-icon-3 = 4;Ⅳ   
+ws-icon-4 = 5;Ⅴ
+ws-icon-5 = 6;Ⅵ
+ws-icon-6 = 7;Ⅶ   
+ws-icon-7 = 8;Ⅷ
+ws-icon-8 = 9;Ⅸ
+ws-icon-9 = 10;Ⅹ
 
 [module/cpu]
 type = internal/cpu
@@ -273,7 +272,7 @@ format-padding = 1
 
 format-underline = #608AF5
 label = %output:0:30:...%
-interval = 1800
+interval = 180
 
 
 [settings]
