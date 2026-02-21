@@ -1,0 +1,1 @@
+/home/ol/.config/fish
