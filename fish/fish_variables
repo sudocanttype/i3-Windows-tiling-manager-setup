@@ -1,0 +1,5 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export QT_ENABLE_HIGHDPI_SCALING:0
+SETUVAR __fish_initialized:4300
+SETUVAR fish_user_paths:/home/ol/\x2efzf/bin
