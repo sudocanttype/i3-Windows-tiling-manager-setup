@@ -1,6 +1,15 @@
 /*
 /*/
+
 __pycache__/
+
+
+
+!.gitignore
+!LICENSE
+!README.md
+
+
 !btop
 !fish
 !i3
@@ -13,7 +22,7 @@ __pycache__/
 !rofi
 !starship
 !terminator
-!.gitignore
-!LICENSE
-!README.md
+!thefuck
+
+
 
