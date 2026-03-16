@@ -23,7 +23,7 @@ trans = #00000000
 semi-trans-black = #cc000000
 
 [bar/bar1]
-monitor = ${env:MONITOR:HDMI-0}
+monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 40
 radius = 0

@@ -164,8 +164,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 ############WINDOW SETUPS#################
 ########################################
 #Monitor Config
-set $monitor_left HDMI-0
-set $monitor_right DVI-D-0
+set $monitor_left HDMI-1
+set $monitor_right DVI-D-1
 exec_always --no-startup-id ~/.config/i3/startScript.sh
 workspace 1 output $monitor_left
 workspace 2 output $monitor_right
@@ -223,8 +223,10 @@ for_window [title="Extension:.*Bitwarden.*"] resize set 550 650
 
 for_window [class="Brave-browser"] split vertical 
 for_window [class="easyeffects"] split vertical
-assign [class="Brave-browser"] → 4
+# assign [class="Brave-browser"] → 4
 
 for_window [title="Android Emulator*"] floating enable
+
+for_window [class="Qalculate-gtk"] floating enable
 
 for_window [class=".*"] border pixel 2
