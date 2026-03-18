@@ -26,6 +26,7 @@ i3lock --nofork                 	\
     --ringver-color=bff6f2 \
     --insidever-color=bff6f2 \
     --ringwrong-color=bff6f2\
+    --wrong-color=FF0000 \
     --insidewrong-color=bff6f2\
     --bshl-color=5e81ac			\
     --keyhl-color=a3be8c			\
