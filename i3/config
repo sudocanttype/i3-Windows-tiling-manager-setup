@@ -151,7 +151,7 @@ bindsym Mod1+Shift+b border toggle
 # Qemu Shit
 bindsym Mod1+Shift+m exec /usr/local/bin/qemu_toggle_mouse
 bindsym Mod1+r mode "resize"
-bindsym Mod4+l exec i3lock
+bindsym Mod4+l exec "sh ~/.config/i3lock/i3lock"
 
 
 #Volume
