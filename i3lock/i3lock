@@ -18,14 +18,15 @@ i3lock --nofork                 	\
     \
     --indicator				\
     --ind-pos='3720:900' \
-    --radius=150\
-    --ring-width=20 \
+    --radius=50\
+    --ring-width=10 \
     --inside-color=FF7823 \
     --line-uses-inside \
     --ring-color=FACF1C \
     --ringver-color=bff6f2 \
     --insidever-color=bff6f2 \
-    --ringwrong-color=bf616a		\
+    --ringwrong-color=bff6f2\
+    --insidewrong-color=bff6f2\
     --bshl-color=5e81ac			\
     --keyhl-color=a3be8c			\
     \
