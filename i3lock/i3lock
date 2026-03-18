@@ -23,7 +23,8 @@ i3lock --nofork                 	\
     --inside-color=FF7823 \
     --line-uses-inside \
     --ring-color=FACF1C \
-    --ringver-color=000000\
+    --ringver-color=bff6f2 \
+    --insidever-color=bff6f2 \
     --ringwrong-color=bf616a		\
     --bshl-color=5e81ac			\
     --keyhl-color=a3be8c			\
@@ -32,7 +33,7 @@ i3lock --nofork                 	\
     --time-color=eceff4ff		\
     --time-str="%I:%M %p"		\
     --time-font="Calvin and Hobbes"	\
-    --time-size=175			\
+    --time-size=250 \
     --time-pos="4500:1300"		\
     --time-color=2e3440ff		\
     \
