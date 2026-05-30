@@ -1,8 +1,10 @@
 [global_config]
   tab_position = hidden
 [keybindings]
+  layout_launcher = <Alt>Delete
 [profiles]
   [[default]]
+    background_darkness = 0.9
     background_type = transparent
     font = UbuntuMono Nerd Font Mono 12
     show_titlebar = False
