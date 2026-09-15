@@ -9,11 +9,11 @@ LEFTMONITOR=DP-1
 
 
 
-# amdgpu fails DP link training on DP-3 coming back from a DPMS power-off, which
-# stalls the atomic commit shared by all three heads and blanks HDMI-1 and DVI-D-1
-# too. Blank the screen instead of powering it down so the DP link is never dropped.
+# Any display-state change while idle makes amdgpu stall page flips for ~10s at a
+# time (flip_done/VBLANK timeouts). That blanks the other heads, and GL apps waiting
+# on the frame-completion event deadlock permanently. Leave the pipeline untouched.
 xset -dpms
-xset s 600 600
+xset s off
 
 xrandr --output $LEFTMONITOR --scale 1.5x1.5 --pos 0x0
 xrandr --output  $MAINMONITOR --primary --pos 2880x0

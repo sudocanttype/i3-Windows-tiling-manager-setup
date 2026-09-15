@@ -83,7 +83,7 @@ bindsym Mod1+Shift+Right move right
 bindsym Mod1+g split h
 
 #make alt-tab go to another workspace
-bindsym Mod1+Tab workspace next
+bindsym Mod1+Tab exec --no-startup-id rofi -modi combi -combi-modi window -show combi
 # split in vertical orientation
 bindsym Mod1+v split v
 
@@ -155,7 +155,8 @@ bindsym Mod4+l exec "sh ~/.config/i3lock/i3lock"
 
 
 #Volume
-exec_always --no-startup-id "sleep 2 && pactl set-default-sink easyeffects_sink"
+# NOTE: change this if you have a different default source
+exec_always --no-startup-id "sleep 2 && pactl set-default-sink bluez_output.00_19_01_C6_66_F0.1"
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle 
@@ -202,14 +203,13 @@ mode "resize" {
 #compton screen rendering 
 # exec_always --no-startup-id "pkill -HUP picom ; picom --config ~/.config/compton.conf -b"
 
-exec --no-startup-id "i3-msg 'workspace 1;  exec /usr/bin/librewolf'"
-exec --no-startup-id "i3-msg 'workspace 2;  exec /usr/bin/terminator'"
-
+# exec --no-startup-id "i3-msg 'workspace 1;  exec /usr/bin/librewolf'"
 # Startup
 exec_always --no-startup-id "sleep 1 && feh ~/.config/i3/wallpapers/nice.jpg --bg-scale ~/.config/i3/wallpapers/nice.jpg --bg-fill"
-exec --no-startup-id "sleep 1 && i3-msg 'workspace 4;  exec /usr/bin/brave; exec /usr/bin/thunderbird'"
 exec --no-startup-id "sleep 1 && i3-msg 'workspace 10;exec /usr/bin/easyeffects'"
-exec --no-startup-id "sleep 2 && i3-msg 'workspace 9;  exec /usr/bin/nextcloud ; exec /usr/bin/workrave'"
+exec --no-startup-id "sleep 2 && i3-msg 'workspace 9;  exec /usr/bin/nextcloud; exec /usr/bin/workrave'"
+exec --no-startup-id "sleep 3 && i3-msg 'workspace 4;  exec /usr/bin/terminator; exec /usr/bin/thunderbird'"
+exec --no-startup-id "sleep 3 && i3-msg 'workspace 1;  exec /usr/bin/librewolf'"
 
 exec --no-startup-id "/usr/bin/polybar bar1"
 assign [class="easyeffects"]→ 10

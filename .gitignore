@@ -25,5 +25,6 @@ __pycache__/
 !terminator
 !thefuck
 
+*.txt
 
 
