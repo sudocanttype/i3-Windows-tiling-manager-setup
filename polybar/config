@@ -16,7 +16,8 @@ background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #0b7c84 secondary = #e60053
+primary = #0b7c84 
+secondary = #e60053
 alert = #bd2c40
 
 trans = #00000000
@@ -85,32 +86,32 @@ label-mode-background = ${colors.background}
 
 
 ; focused = Active workspace on focused monitor
-; label-focused = %{T5}%icon%%{T-}
-label-focused = %{T5}%{T-}
-label-focused-background = ${colors.background}
+label-focused = %{T1}%icon%%{T-}
+; label-focused = %{T5}%{T-}
+label-focused-background = ${colors.primary}
 ; label-focused-underline= ${colors.primary}
-label-focused-foreground= ${colors.primary}
+;label-focused-foreground= ${colors.background}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %{T5}%{T-}
-; label-unfocused = %{T5}%icon%%{T-}
+; label-unfocused = %{T5}%{T-}
+label-unfocused = %{T1}%icon%%{T-}
 
 label-unfocused-padding = 2
 label-unfocused-background = ${colors.background}
 ; label-unfocused-underline= #11AB84 
 
 ; visible = Active workspace on unfocused monitor
-; label-visible = %{T5}%icon%%{T-}
-label-visible= %{T5}%{T-}
+label-visible = %{T1}%icon%%{T-}
+;label-visible= %{T5}%{T-}
 
 label-visible-background = ${self.label-focused-background}
 ; label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent= %{T5}%{T-}
-; label-urgent-background = ${colors.background}
+label-urgent= %{T1}%icon%%{T-}
+label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 ; Separator in between workspaces
@@ -119,16 +120,28 @@ label-urgent-padding = 2
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-ws-icon-0 = 1;Ⅰ   
-ws-icon-1 = 2;Ⅱ   
-ws-icon-2 = 3;Ⅲ
-ws-icon-3 = 4;Ⅳ   
-ws-icon-4 = 5;Ⅴ
-ws-icon-5 = 6;Ⅵ
-ws-icon-6 = 7;Ⅶ   
-ws-icon-7 = 8;Ⅷ
-ws-icon-8 = 9;Ⅸ
-ws-icon-9 = 10;Ⅹ
+; ws-icon-0 = 1;Ⅰ   
+; ws-icon-1 = 2;Ⅱ   
+; ws-icon-2 = 3;Ⅲ
+; ws-icon-3 = 4;Ⅳ   
+; ws-icon-4 = 5;Ⅴ
+; ws-icon-5 = 6;Ⅵ
+; ws-icon-6 = 7;Ⅶ   
+; ws-icon-7 = 8;Ⅷ
+; ws-icon-8 = 9;Ⅸ
+; ws-icon-9 = 10;Ⅹ
+
+ws-icon-0 = 1;1  
+ws-icon-1 = 2;2 
+ws-icon-2 = 3;3
+ws-icon-3 = 4;4 
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7 
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;0
+ws-icon-default = X
 
 [module/cpu]
 type = internal/cpu
